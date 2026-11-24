@@ -10,7 +10,7 @@ CREATE TABLE `players`(-- πίνακας με τα στοιχεία των πα�
 `username` varchar(30) DEFAULT NULL, -- όνομα παίκτη το οποίο θα είναι null μέχρι να κάνει login
 `piece_color` enum('Red','Blue') NOT NULL, -- το χρώμα των πιονιών του παίκτη όπου θα αποτελέι και το primary key
 `token` varchar(255) DEFAULT NULL, -- μοναδικό session token για την επικοινωνία με το API
-`last_action` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- χρόνος για την τελευταία κίνηση του παίκτη
+`last_action` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- χρόνος από την τελευταία κίνηση του παίκτη
 PRIMARY KEY (`piece_color`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; 
 
