@@ -17,3 +17,12 @@ PRIMARY KEY (`piece_color`)
 INSERT INTO `players` (`username`, `piece_color`, `token`) VALUES
 (NULL, 'Red', NULL),
 (NULL, 'Blue', NULL);
+
+CREATE TABLE `game_status`(
+`status` enum('Start','End','Abort','Not Active','Initialized') NOT NULL DEFAULT 'Not Active', -- σε ποιο σημείο ή φάση του παιχνιδιού βρισκόμαστε
+`player_turn` enum('Red','Blue') DEFAULT NULL, -- ποιος παίκτης έχει σειρά
+`result` enum('Red Win','Blue Win','Draw') DEFAULT NULL, -- ποιος παίκτης νίκησε ή αν ήρθε ισοπαλία
+`last_change` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+INSERT INTO `game_status` (`status`, `player_turn`, `result`) VALUES ('Not Active', NULL, NULL);
