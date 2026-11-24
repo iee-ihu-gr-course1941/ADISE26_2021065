@@ -10,13 +10,14 @@ CREATE TABLE `players`(-- πίνακας με τα στοιχεία των πα�
 `username` varchar(30) DEFAULT NULL, -- όνομα παίκτη το οποίο θα είναι null μέχρι να κάνει login
 `piece_color` enum('Red','Blue') NOT NULL, -- το χρώμα των πιονιών του παίκτη όπου θα αποτελέι και το primary key
 `token` varchar(255) DEFAULT NULL, -- μοναδικό session token για την επικοινωνία με το API
-`last_action` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- χρόνος για την τελευταία κίνηση του παίκτη
+`last_action` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- χρόνος από την τελευταία κίνηση του παίκτη
 PRIMARY KEY (`piece_color`)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin; 
 
 INSERT INTO `players` (`username`, `piece_color`, `token`) VALUES
 (NULL, 'Red', NULL),
 (NULL, 'Blue', NULL);
+<<<<<<< HEAD
 
 CREATE TABLE `game_status`(
 `status` enum('Start','End','Abort','Not Active','Initialized') NOT NULL DEFAULT 'Not Active', -- σε ποιο σημείο ή φάση του παιχνιδιού βρισκόμαστε
@@ -26,3 +27,5 @@ CREATE TABLE `game_status`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `game_status` (`status`, `player_turn`, `result`) VALUES ('Not Active', NULL, NULL);
+=======
+>>>>>>> 58aad9a202ace175acef55b70910a69f4c5652cd
