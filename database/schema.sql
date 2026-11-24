@@ -17,7 +17,6 @@ PRIMARY KEY (`piece_color`)
 INSERT INTO `players` (`username`, `piece_color`, `token`) VALUES
 (NULL, 'Red', NULL),
 (NULL, 'Blue', NULL);
-<<<<<<< HEAD
 
 CREATE TABLE `game_status`(
 `status` enum('Start','End','Abort','Not Active','Initialized') NOT NULL DEFAULT 'Not Active', -- σε ποιο σημείο ή φάση του παιχνιδιού βρισκόμαστε
@@ -27,5 +26,3 @@ CREATE TABLE `game_status`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `game_status` (`status`, `player_turn`, `result`) VALUES ('Not Active', NULL, NULL);
-=======
->>>>>>> 58aad9a202ace175acef55b70910a69f4c5652cd
