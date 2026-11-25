@@ -17,7 +17,6 @@ PRIMARY KEY (`piece_color`)
 INSERT INTO `players` (`username`, `piece_color`, `token`) VALUES
 (NULL, 'Red', NULL),
 (NULL, 'Blue', NULL);
-<<<<<<< HEAD
 
 CREATE TABLE `game_status`(
 `status` enum('Start','End','Abort','Not Active','Initialized') NOT NULL DEFAULT 'Not Active', -- σε ποιο σημείο ή φάση του παιχνιδιού βρισκόμαστε
@@ -27,5 +26,11 @@ CREATE TABLE `game_status`(
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `game_status` (`status`, `player_turn`, `result`) VALUES ('Not Active', NULL, NULL);
-=======
->>>>>>> 58aad9a202ace175acef55b70910a69f4c5652cd
+
+CREATE TABLE `cards`(
+`id` INT NOT NULL AUTO_INCREMENT, -- σύμφωνα με το wikipedia υπάρχουν 16 κάρτες οπότε θα γίνεται αυτόματη ανάθεση για το id από 1 εώς 16
+`card_name` varchar(30) NOT NULL UNIQUE, -- κάθε κάρτα έχει μια μοναδική ονομασία π.χ. Tiger,Dragon,Monkey κτλ
+`card_location` enum('Red','Blue','Neutral','Deck') NOT NULL DEFAULT 'Deck', -- που βρίσκεται η κάρτα στην παρτίδα, το Neutral σημαίνει ότι βρίσκεται στη μέση για ανταλλαγή
+`first_player` enum('Red','Blue') NOT NULL, -- παίζει πρώτος`moves` varchar(255) NOT NULL, -- json array που σχετίζεται με τις κινήσεις
+PRIMARY KEY(`id`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
